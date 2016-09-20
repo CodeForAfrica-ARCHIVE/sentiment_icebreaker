@@ -29,6 +29,7 @@ class Listener(tweepy.StreamListener):
     def __init__(self, logger=None):
         super(Listener, self).__init__()
         self.logger = logger
+        self.api = get_api()
 
     def on_direct_message(self, msg):
         """
@@ -43,6 +44,8 @@ class Listener(tweepy.StreamListener):
         summ = 'DM - {request_id} | {username} | {message}'.format(
                 **payload)
         self.logger.info(summ)
+        self.api.send_direct_message(user=payload["username"], text="ACK")
+
 
     def on_dropped_connection(self,):
         """
