@@ -6,7 +6,7 @@ LOGGING['location'] = 'logs/log-streaming.log'
 LOGGING['level'] = logging.DEBUG
 LOGGING['format'] = '%(asctime)s : %(levelname)s: %(message)s'
 
-PRINCIPLE_TW_HANDLE = 'pylitwoops'
+PRINCIPLE_TW_HANDLE = ""
 
 TW_AUTH_CREDENTIALS = {}
 TW_AUTH_CREDENTIALS['consumer_key'] = ""   # Consumer Key (API Key)
