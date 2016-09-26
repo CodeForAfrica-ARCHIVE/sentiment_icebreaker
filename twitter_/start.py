@@ -11,10 +11,10 @@ def get_logger():
     :return type: <logging.Logger object>
     '''
     try:
-        log_file = "/var/log/twitter-stream.log"
+        log_file = "logs/twitter-stream.log"
         logger = logging.getLogger(log_file)
         logger.setLevel(logging.DEBUG)
-        handler = TimedRotatingFileHandler('/var/log/twitter-stream.log', 'midnight')
+        handler = TimedRotatingFileHandler(log_file, 'midnight')
         formatter = logging.Formatter( "(asctime)s - %(name)s - %(levelname)s - %(message)s" )
         handler.setFormatter(formatter)
         logger.addHandler(handler)
