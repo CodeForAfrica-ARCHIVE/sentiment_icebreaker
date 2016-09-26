@@ -57,7 +57,15 @@ class Listener(tweepy.StreamListener):
         language = language_detector.language.name
 
         # retrieve message polarity
-        msg_polarity = Text(msg_text).polarity
+        try:
+            msg_polarity = Text(msg_text).polarity
+        except ZeroDivisionError:
+            msg_polarity = 0
+        msg_sentiment = "neutral"
+        if msg_polarity < 0:
+            msg_sentiment = "negative"
+        elif msg_polarity > 0:
+            msg_sentiment = "positive"
 
         # retrieve message entities
         msg_entities = []
@@ -66,19 +74,15 @@ class Listener(tweepy.StreamListener):
 
 
         # construct message
-        response_message = """ Hi there, @%s.
+        response_message = """[%s] Hi there, @%s.
         Here's what we got from your message:
 
         Language: %s
-        Sentiment polarity: %s
+        Sentiment polarity: %s - %s
         Entities: %s
-        """ % (
-                payload["username"],
-                language,
-                msg_polarity,
-                msg_entities
-                )
-
+        """ % (payload["request_id"], payload["username"], language,
+                msg_polarity, msg_sentiment, msg_entities)
+        print response_message
 
         # send DM response to user
         self.api.send_direct_message(user=payload["username"], text=response_message)
