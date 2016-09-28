@@ -2,3 +2,8 @@ tweepy==3.5.0
 polyglot
 Flask
 flask_script
+oauthlib
+werkzeug
+jinja2
+itsdangerous
+click
