@@ -4,6 +4,7 @@ Stream listener
 polyglot download sentiment2.en
 polyglot download embeddings2.en ner2.en
 """
+import json
 import tweepy
 from sentiment_icebreaker.twitter_ import config
 
@@ -82,7 +83,7 @@ class Listener(tweepy.StreamListener):
         # 5) Write results to file...
         output = [str(msg_text), msg_polarity, msg_sentiment]
         with open(config.MESSAGESTORE, 'a') as writefile:
-            writefile.write("%s," % str(output))
+            writefile.write(json.dumps("%s," % str(output)))
         self.logger.debug("%s saved" % payload["request_id"])
 
          
