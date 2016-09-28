@@ -55,13 +55,13 @@ function run() {
 function get_messages() {
     $.ajax({
 		method: "GET",
-		url: '/messages',,
+		url: '/messages',
 		success: function(data) {
 			display_tweets(data)
 		}
 	});
 }
 
-function display_tweets() {
-
+function display_tweets(data) {
+    console.log(JSON.parse(data.replace(/u'/g, "'");))
 }

@@ -6,7 +6,9 @@ LOGGING['location'] = 'logs/log-streaming.log'
 LOGGING['level'] = logging.DEBUG
 LOGGING['format'] = '%(asctime)s : %(levelname)s: %(message)s'
 
-PRINCIPLE_TW_HANDLE = 'muthonieve'
+MESSAGESTORE = "/tmp/tweets-archive.txt"
+
+PRINCIPLE_TW_HANDLE = ""
 
 TW_AUTH_CREDENTIALS = {}
 TW_AUTH_CREDENTIALS['consumer_key'] = "QbN1OWG7h9gBi14wImgiiNwRM"   # Consumer Key (API Key)
