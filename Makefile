@@ -3,3 +3,6 @@ start:
 
 install-language-packs:
 	polyglot download sentiment2.en embeddings2.en ner2.en
+
+runwebserver:
+	python web/core.py

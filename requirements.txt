@@ -1,2 +1,5 @@
 tweepy==3.5.0
 polyglot
+redis
+Flask
+flask_script
