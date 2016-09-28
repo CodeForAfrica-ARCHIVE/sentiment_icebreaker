@@ -3,48 +3,65 @@
 	<title>Ice Breaker | Devcraft</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-	<script src="amcharts.js"></script>
+	<script src="/static/js/amcharts.js"></script>
 	<script src="https://www.amcharts.com/lib/3/pie.js"></script>
 	<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
 	<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css" media="all" />
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Roboto|Raleway:600,400,200' rel='stylesheet' type='text/css'>
+
+	<style>
+		.bar {
+			height:100%;
+		}
+		.green {
+			background:#26A65B;
+		}
+		.red {
+			background:#F22613;
+		}
+		.orange {
+			background:#F89406;
+		}
+		.donut {
+			width		: 100%;
+			height		: 500px;
+			font-size	: 11px;
+		}
+		.divider {
+			height:2px;
+			width:100%;
+		}
+		body {background-color:#fff;}
+		.tweets {
+			height:500px;
+			overflow-y:scroll;
+		}
+		.tweet {
+			border-bottom: 1px solid #ccc;
+			height:180px;
+			font-size: 24px;
+			padding:10px;
+			font-family:"raleway";
+		}
+		.question {padding:20px 0px;}
+	</style>
 </head>
 
 <body>
-	<div class="container" style="width:1700px;">
+	<div class="container" style="width:80%;margin:0 auto;">
 		<div class="col-md-12" style="margin-top:10px;">
-			<img src="logo-blue.png" class="pull-left" height="50px" style="margin-top:7px;"/>
-			<img src="c4a.png" class="pull-left" height="50px">
+			<img src="/static/img/logo-blue.png" class="pull-left" height="50px" style="margin-top:7px;"/>
+			<img src="/static/img/c4a.png" class="pull-left" height="50px">
 		</div>
 		<div class="col-md-12">
-			<center><h1 class="question">Big question goes here?</h1></center>
+			<center><h1 class="question">Tell us what you think about Manchester United</h1></center>
 		</div>
 		<div class="col-md-4 bar">
 			<div class="donut" id="bar1"></div>
 			<div class="divider green"></div>
 			<div class="tweets">
-				<div class="tweet">
-					<i class="fa fa-twitter"></i>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="tweet">
-					<i class="fa fa-twitter"></i>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="tweet">
-					<i class="fa fa-twitter"></i>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="tweet">
-					<i class="fa fa-twitter"></i>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="tweet">
-					<i class="fa fa-twitter"></i>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
 				<div class="tweet">
 					<i class="fa fa-twitter"></i>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -59,18 +76,6 @@
 					<i class="fa fa-twitter"></i>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 				</div>
-				<div class="tweet">
-					<i class="fa fa-twitter"></i>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="tweet">
-					<i class="fa fa-twitter"></i>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="tweet">
-					<i class="fa fa-twitter"></i>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
 			</div>
 		</div>
 		<div class="col-md-4 bar">
@@ -81,64 +86,9 @@
 					<i class="fa fa-twitter"></i>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 				</div>
-				<div class="tweet">
-					<i class="fa fa-twitter"></i>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript">
-
-		function draw_donut(element, val, sentiment, color ) {
-			AmCharts.makeChart(element, {
-			  "type": "pie",
-			  "allLabels": [{
-				"text": val + "%",
-				"align": "center",
-				"size": "50",
-				"bold": true,
-				"fontFamily": "raleway",
-				"y": 220
-			  }, {
-				"text": sentiment,
-				"align": "center",
-				"size": "15",
-				"fontFamily": "raleway",
-				"bold": false,
-				"y": 300
-			  }],
-			  "dataProvider": [{
-				"title": "Other",
-				"value": 100 - val,
-			  }, {
-				"title": "Sentiment",
-				"value": val,
-			  }],
-			  "titleField": "title",
-			  "valueField": "value",
-			  "labelRadius": -130,
-			  "radius": "150",
-			  "innerRadius": "120",
-			  "labelText": "",
-			  "startDuration": 0,
-			  "colors": ["#ccc", color],
-			  "fontFamily": "raleway",
-			});
-		}
-		draw_donut('bar1', 70, 'Positive', '#26A65B')
-		draw_donut('bar2', 20, 'Neutral', '#F89406')
-		draw_donut('bar3', 10, 'Negative', '#F22613')
-
-		setInterval(function() {run();}, 1000)
-		function run() {
-			i = Math.floor((Math.random() * 100) + 1);
-			j = Math.floor((Math.random() * (100-i)) + 1);
-			k = 100 -i -j
-			draw_donut('bar1', i, 'Positive', '#26A65B')
-			draw_donut('bar2', j, 'Neutral', '#F89406')
-			draw_donut('bar3', k, 'Negative', '#F22613')
-		}
-	</script>
+	<script src="/static/js/custom.js"></script>
 </body>
 </html>
