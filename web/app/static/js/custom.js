@@ -63,5 +63,5 @@ function get_messages() {
 }
 
 function display_tweets(data) {
-    console.log(JSON.parse(data.replace(/u'/g, "'");))
+    console.log(JSON.parse(data))
 }
