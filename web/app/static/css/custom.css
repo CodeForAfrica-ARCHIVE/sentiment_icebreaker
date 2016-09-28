@@ -1,5 +1,6 @@
+body {height:100%;}
 .bar {
-    height:100%;
+    height:85%;
 }
 .green {
     background:#26A65B;
@@ -11,9 +12,9 @@
     background:#F89406;
 }
 .donut {
-    width: 100%;
-    height: 500px;
-    font-size: 11px;
+    width		: 100%;
+    height		: 500px;
+    font-size	: 11px;
 }
 .divider {
     height:2px;
@@ -21,21 +22,15 @@
 }
 body {background-color:#fff;}
 .tweets {
+    height:500px;
     overflow-y:scroll;
 }
 .tweet {
-    border-bottom: 1px dashed #ccc;
+    border-bottom: 1px solid #ccc;
     height:auto;
     font-size: 24px;
     padding:10px;
     font-family:"raleway";
 }
 .question {padding:20px 0px;}
-
-.amcharts-chart-div svg {
-    position:relative !important;
-    height:100% !important;
-}
-.amcharts-chart-div {
-    height:300px !important ;
-}
+small {color: #888;}

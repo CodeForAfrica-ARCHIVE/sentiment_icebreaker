@@ -80,9 +80,9 @@ class Listener(tweepy.StreamListener):
         
         
         # 5) Write results to file...
-        output = [str(msg_text), msg_polarity, msg_sentiment]
+        output = str(msg_text) + '#' + str(msg_polarity) + '#' + msg_sentiment + '**'
         with open(config.MESSAGESTORE, 'a') as writefile:
-            writefile.write("%s," % str(output))
+            writefile.write("%s" % str(output))
         self.logger.debug("%s saved" % payload["request_id"])
 
          

@@ -64,16 +64,16 @@ function display_tweets(data) {
     neutral_markup = ''
     negative_markup = ''
     p = 0, n = 0 , nn = 0
-    data = data.split('],')
+    data = data.split('**')
     for (var i = 0; i < data.length - 1; i++) {
-        t = data[i].replace('[', '')
-        t = t.split(',')
+        t = data[i]
+        t = t.split('#')
         text = t[0].replace(/'/g, '')
         score = t[1]
         type = t[2]
-        if (score < 0) {negative_markup += tweet(text, '#F22613'); n += 1}
-        else if (score > 0) {positive_markup += tweet(text, '#26A65B'); p += 1}
-        else {neutral_markup +=  tweet(text, '#F89406'); nn += 1}
+        if (score < 0) {negative_markup += tweet(text, '#F22613', score); n += 1}
+        else if (score > 0) {positive_markup += tweet(text, '#26A65B', score); p += 1}
+        else {neutral_markup +=  tweet(text, '#F89406', score); nn += 1}
     }
     $('#positive-tweets').html(positive_markup)
     $('#neutral-tweets').html(neutral_markup)
@@ -81,6 +81,6 @@ function display_tweets(data) {
     calculate(p, nn, n)
 }
 
-function tweet(text, color) {
-    return '<div class="tweet"><i class="fa fa-twitter" style="color:'+ color + ';"></i><p>' + text + '</p></div>'
+function tweet(text, color, score) {
+    return '<div class="tweet"><i class="fa fa-twitter" style="color:'+ color + ';"></i><p>' + text + '</p><small>' + score +'</small></div>'
 }
