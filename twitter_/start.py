@@ -29,6 +29,5 @@ if __name__ == '__main__':
     logger = get_logger()
     logger.info("Initiating stream...")
     lstnr = listener.Listener(logger=logger)
-    stream = tweepy.Stream(listener.get_api(auth_only=True), lstnr)
-    stream.userstream()
+    tweepy.Stream(listener.get_api(auth_only=True), lstnr).userstream()
     logger.info("Stream started.")
