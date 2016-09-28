@@ -10,6 +10,8 @@ from sentiment_icebreaker.twitter_ import config
 from polyglot.detect import Detector
 from polyglot.text import Text
 
+MESSAGESTORE = "tweets-archive.txt"
+
 def get_api(auth_only=False, multi=False):
     """
     auth_only: return the OauthHandler object if True; else return the API object
@@ -52,15 +54,39 @@ class Listener(tweepy.StreamListener):
         self.logger.info(summ)
 
         # 1) retrieve message language here....
+        msg_text = payload["message"]
+        language_detector = Detector(msg_text)
+        language = language_detector.language.name
 
         
         # 2) retrieve message polarity here...
+        try:
+            msg_polarity = Text(msg_text).polarity
+        except ZeroDivisionError:
+            msg_polarity = 0
+        msg_sentiment = "neutral"
+        if msg_polarity < 0:
+            msg_sentiment = "negative"
+        elif msg_polarity > 0:
+            msg_sentiment = "positive"
 
         
         # 3) retrieve message entities here...
+        msg_entities = []
+        for entity in Text(msg_text).entities:
+            msg_entities.append(entity)
 
 
         # 4) Send response message to user here...
+        
+        
+        # 5) Write results to file...
+        output = [msg_text, msg_polarity, msg_sentiment]
+        with open(MESSAGESTORE, 'a') as writefile:
+            writefile.write(str(output))
+        self.logger.debug("%s saved" % payload["request_id"])
+
+         
 
 
     def on_dropped_connection(self,):
