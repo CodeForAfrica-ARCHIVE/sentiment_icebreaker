@@ -6,6 +6,8 @@ LOGGING['location'] = 'logs/log-streaming.log'
 LOGGING['level'] = logging.DEBUG
 LOGGING['format'] = '%(asctime)s : %(levelname)s: %(message)s'
 
+MESSAGESTORE = "/tmp/tweets-archive.txt"
+
 PRINCIPLE_TW_HANDLE = ""
 
 TW_AUTH_CREDENTIALS = {}
