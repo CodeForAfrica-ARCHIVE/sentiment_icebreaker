@@ -51,41 +51,16 @@ class Listener(tweepy.StreamListener):
                 **payload)
         self.logger.info(summ)
 
-        # retrieve message language
-        msg_text = payload["message"]
-        language_detector = Detector(msg_text)
-        language = language_detector.language.name
+        # 1) retrieve message language here....
 
-        # retrieve message polarity
-        try:
-            msg_polarity = Text(msg_text).polarity
-        except ZeroDivisionError:
-            msg_polarity = 0
-        msg_sentiment = "neutral"
-        if msg_polarity < 0:
-            msg_sentiment = "negative"
-        elif msg_polarity > 0:
-            msg_sentiment = "positive"
+        
+        # 2) retrieve message polarity here...
 
-        # retrieve message entities
-        msg_entities = []
-        for entity in Text(msg_text).entities:
-            msg_entities.append(entity)
+        
+        # 3) retrieve message entities here...
 
 
-        # construct message
-        response_message = """[%s] Hi there, @%s.
-        Here's what we got from your message:
-
-        Language: %s
-        Sentiment polarity: %s - %s
-        Entities: %s
-        """ % (payload["request_id"], payload["username"], language,
-                msg_polarity, msg_sentiment, msg_entities)
-        print response_message
-
-        # send DM response to user
-        self.api.send_direct_message(user=payload["username"], text=response_message)
+        # 4) Send response message to user here...
 
 
     def on_dropped_connection(self,):
