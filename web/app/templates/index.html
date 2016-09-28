@@ -12,8 +12,9 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto|Raleway:600,400,200' rel='stylesheet' type='text/css'>
 
 	<style>
+	    body {height:100%;}
 		.bar {
-			height:100%;
+			height:85%;
 		}
 		.green {
 			background:#26A65B;
@@ -40,7 +41,7 @@
 		}
 		.tweet {
 			border-bottom: 1px solid #ccc;
-			height:180px;
+			height:auto;
 			font-size: 24px;
 			padding:10px;
 			font-family:"raleway";
@@ -56,36 +57,24 @@
 			<img src="/static/img/c4a.png" class="pull-left" height="50px">
 		</div>
 		<div class="col-md-12">
-			<center><h1 class="question">Tell us what you think about Manchester United</h1></center>
+			<center><h1 class="question">Tell us what you think about the betting industry in Kenya</h1></center>
 		</div>
 		<div class="col-md-4 bar">
 			<div class="donut" id="bar1"></div>
 			<div class="divider green"></div>
-			<div class="tweets">
-				<div class="tweet">
-					<i class="fa fa-twitter"></i>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
+			<div class="tweets" id="positive-tweets">
 			</div>
 		</div>
 		<div class="col-md-4 bar">
 			<div class="donut"id="bar2"></div>
 			<div class="divider orange"></div>
-			<div class="tweets">
-				<div class="tweet">
-					<i class="fa fa-twitter"></i>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
+			<div class="tweets" id="neutral-tweets">
 			</div>
 		</div>
 		<div class="col-md-4 bar">
 			<div class="donut" id="bar3"></div>
 			<div class="divider red"></div>
-			<div class="tweets">
-				<div class="tweet">
-					<i class="fa fa-twitter"></i>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
+			<div class="tweets" id="negative-tweets">
 			</div>
 		</div>
 	</div>

@@ -11,7 +11,7 @@ MESSAGESTORE = "/tmp/tweets-archive.txt"
 PRINCIPLE_TW_HANDLE = ""
 
 TW_AUTH_CREDENTIALS = {}
-TW_AUTH_CREDENTIALS['consumer_key'] = "QbN1OWG7h9gBi14wImgiiNwRM"   # Consumer Key (API Key)
-TW_AUTH_CREDENTIALS['consumer_secret'] = "ui89uvLbfQd71DWreYO0mRU3pIzkq6VTCxDWZJje58sb5gSHGH"   # Consumer Secret (API Secret)
-TW_AUTH_CREDENTIALS['access_token_key'] = "81811976-yIEbKSr8mP4FfnvrvcfqhVhFZ7NSwQ7D7x3cTxR9U"  # Access Token
-TW_AUTH_CREDENTIALS['access_token_secret'] = "SKuFJmUIav3RTsjptreLz5YGaaCUolOLdm2LKUtiF2cCn"  # Access Token Secret
+TW_AUTH_CREDENTIALS['consumer_key'] = "btcGeW5Z7lSJ5irfCyoWCWZin"   # Consumer Key (API Key)
+TW_AUTH_CREDENTIALS['consumer_secret'] = "0JwSP9j2gV29ixIbVHBkvRkl4mmt8xArOCQcs6fS82E1JryaBu"   # Consumer Secret (API Secret)
+TW_AUTH_CREDENTIALS['access_token_key'] = "1237372231-CNFppr2FRW8pHpRRLg9IpJWzwVwenzRsjlwHcc4"  # Access Token
+TW_AUTH_CREDENTIALS['access_token_secret'] = "GUn3b0OQVPlR8fjNx2Ib2NuDPiGZYQH8GaKAb97qvSB62"  # Access Token Secret

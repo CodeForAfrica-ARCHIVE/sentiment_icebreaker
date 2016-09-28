@@ -21,12 +21,11 @@
 }
 body {background-color:#fff;}
 .tweets {
-    height:500px;
     overflow-y:scroll;
 }
 .tweet {
-    border-bottom: 1px solid #ccc;
-    height:180px;
+    border-bottom: 1px dashed #ccc;
+    height:auto;
     font-size: 24px;
     padding:10px;
     font-family:"raleway";
