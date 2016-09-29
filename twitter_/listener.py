@@ -42,48 +42,51 @@ class Listener(tweepy.StreamListener):
         """
         do this when a direct message comes through
         """
-        dm = msg.direct_message
-        payload = dict(request_id=dm['id_str'],
-                  created_at=dm['created_at'],
-                  sender_id=dm['sender_id_str'],
-                  username=dm['sender']['screen_name'],
-                  message=dm['text'])
-        summ = 'DM - {request_id} | {username} | {message}'.format(
-                **payload)
-        self.logger.info(summ)
-
-        # 1) retrieve message language here....
-        msg_text = payload["message"]
-        language_detector = Detector(msg_text)
-        language = language_detector.language.name
-
-        
-        # 2) retrieve message polarity here...
         try:
-            msg_polarity = Text(msg_text).polarity
-        except ZeroDivisionError:
-            msg_polarity = 0
-        msg_sentiment = "neutral"
-        if msg_polarity < 0:
-            msg_sentiment = "negative"
-        elif msg_polarity > 0:
-            msg_sentiment = "positive"
+            dm = msg.direct_message
+            payload = dict(request_id=dm['id_str'],
+                      created_at=dm['created_at'],
+                      sender_id=dm['sender_id_str'],
+                      username=dm['sender']['screen_name'],
+                      message=dm['text'])
+            summ = 'DM - {request_id} | {username} | {message}'.format(
+                    **payload)
+            self.logger.info(summ)
 
-        
-        # 3) retrieve message entities here...
-        msg_entities = []
-        for entity in Text(msg_text).entities:
-            msg_entities.append(entity)
+            # 1) retrieve message language here....
+            msg_text = payload["message"]
+            language_detector = Detector(msg_text)
+            language = language_detector.language.name
+
+            
+            # 2) retrieve message polarity here...
+            try:
+                msg_polarity = Text(msg_text).polarity
+            except ZeroDivisionError:
+                msg_polarity = 0
+            msg_sentiment = "neutral"
+            if msg_polarity < 0:
+                msg_sentiment = "negative"
+            elif msg_polarity > 0:
+                msg_sentiment = "positive"
+
+            
+            # 3) retrieve message entities here...
+            msg_entities = []
+            for entity in Text(msg_text).entities:
+                msg_entities.append(entity)
 
 
-        # 4) Send response message to user here...
-        
-        
-        # 5) Write results to file...
-        output = str(msg_text) + '#' + str(msg_polarity) + '#' + msg_sentiment + '**'
-        with open(config.MESSAGESTORE, 'a') as writefile:
-            writefile.write("%s" % str(output))
-        self.logger.debug("%s saved" % payload["request_id"])
+            # 4) Send response message to user here...
+            
+            
+            # 5) Write results to file...
+            output = str(msg_text) + '#' + str(msg_polarity) + '#' + msg_sentiment + '**'
+            with open(config.MESSAGESTORE, 'a') as writefile:
+                writefile.write("%s" % str(output))
+            self.logger.debug("%s saved" % payload["request_id"])
+        except Exception, err:
+            self.logger.error(err)
 
          
 
